@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="bbtone:jar">
+    <output-path>$PROJECT_DIR$/classes/artifacts/bbtone_jar</output-path>
+    <root id="archive" name="bbtone.jar">
+      <element id="module-output" name="bbtone" />
+      <element id="library" level="module" name="org.eclipse.jface_3.1.0.jar" module-name="bbtone" />
+    </root>
+  </artifact>
+</component>

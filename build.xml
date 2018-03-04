@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!-- ====================================================================== 
+     Oct 1, 2004 3:09:05 PM                                                        
+
+     BBTone    
+     Tone generator
+                   
+     ====================================================================== -->
+<project name="BBTone" default="jar">
+    <description>
+            Tone generator
+    </description>
+
+    <!-- ================================= 
+          target: compile
+         ================================= -->
+    <target name="compile" description="Compile the sources">
+        <mkdir dir="build" />
+        <javac srcdir="src"
+               destdir="build"
+               debug="on" />
+	<!-- Copy resources to build directory -->
+	<copy todir="build">
+	    <fileset dir="src">
+	      <exclude name="**/*.java"/>
+	      <exclude name="**/*.html"/>
+	      <exclude name="**/CVS"/>
+	      <exclude name="**/CVS/*"/>
+	    </fileset>
+	</copy>
+    </target>
+
+    <!-- ================================= 
+          target: clean
+         ================================= -->
+    <target name="clean">
+        <delete file="bbtone.jar"/>
+	<delete dir="build"/>
+    </target>
+
+    <!-- ================================= 
+          target: jar
+         ================================= -->
+    <target name="jar" depends="compile">
+        <jar destfile="bbtone.jar">
+            <fileset dir="build">
+                <include name="**/*.class" />
+                <include name="**/*.properties" />
+            </fileset>
+            <manifest>
+                <attribute name="Main-Class"
+                           value="com.shaunharrington.bbtone.BBTone" />
+            </manifest>
+        </jar>
+    </target>
+
+</project>
+
